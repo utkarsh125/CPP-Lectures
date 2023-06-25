@@ -6,7 +6,7 @@ using namespace std;
 
 int main(){
 
-    int arr[] = {1,3,5,12,4,7,8,10};
+    int arr[] = {1,3,5,12,4,7,8,2};
     int size = 8;
     //Initialise the maxi varible with
     //minimum possible inter value
