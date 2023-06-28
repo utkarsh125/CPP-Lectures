@@ -1,0 +1,1 @@
+cout<<"("<<element<<","<<arr[j]<<")"<<endl;

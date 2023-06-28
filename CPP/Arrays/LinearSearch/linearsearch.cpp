@@ -22,7 +22,7 @@ int main(){
     cin>>key;
 
     if(find(arr,size,key)) {
-        cout<<"Found at "<<endl;
+        cout<<"Found"<<endl;
     }
     else{
         cout<<"Not Found "<<endl;
