@@ -2,15 +2,23 @@
 using namespace std;
 
 int main(){
-    int num = 5;
 
-    cout<<num<<endl;
+    int a = 5;
+    // int b = 5;
+    
+    // cout<<a<<endl;
 
-    //address of Operator - &
 
-    cout<<"Address of num: "<< &num <<endl;
+    // cout<<&a<<endl;
+    // cout<<&b<<endl;
 
-    int *ptr = &num;
+    // int *ptr = &a;
+    // //ACCESS THE VALUE THE POINTER THE POINTING TO...
 
-    cout<<"Value of ptr is: "<<*ptr<<endl;
+    // cout<<*ptr<<endl;
+    // cout<<ptr<<endl;//prints the address
+
+    //NULL POINTER
+    int* ptr = 0;
+    cout<< *ptr << endl;
 }
