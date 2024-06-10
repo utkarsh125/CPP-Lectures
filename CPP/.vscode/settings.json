@@ -1,11 +1,5 @@
 {
-    "cmake.configureOnOpen": false,
     "files.associations": {
-        "vector": "cpp",
-        "system_error": "cpp",
-        "xlocale": "cpp",
-        "iostream": "cpp",
-        "xstring": "cpp",
-        "algorithm": "cpp"
+        "ostream": "cpp"
     }
 }
