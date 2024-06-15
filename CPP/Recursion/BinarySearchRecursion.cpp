@@ -3,7 +3,7 @@
 using namespace std;
 
 
-int binarySearch(vector<int> arr, int start, int end, int key){
+int binarySearch(vector<int>& arr, int start, int end, int& key){
     //base case
     if(start > end){
         return -1;
