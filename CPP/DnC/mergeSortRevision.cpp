@@ -3,55 +3,63 @@
 using namespace std;
 
 void merge(vector<int>& arr, int start, int end){
+    int mid = start + (end-start)/2;
 
-    int mid = start+(end-start)/2;
+    int len1 = mid-start+1;
+    int len2 = end - mid;
 
-    //CREATE TWO ARRAYS
-    int leftLength = mid - start + 1;
-    int rightLength = end - mid;
+    //dynamic allocation
+    int* left = new int[len1];
+    int* right = new int[len2];
 
-    int *first = new int[leftLength];
-    int *second = new int[rightLength];
-
-    //copy values REMEMBER THAT k is the main array index
-    //FIRST ARRAY COPY
-    int mainArrayindex = start;
-    for(int i=0; i<leftLength; i++){
-        first[i] = arr[mainArrayindex++];
+    //copy values
+    int k = start; //starting index is known
+    for(int i = 0; i<len1; i++){
+        left[i] = arr[k];
+        k++;
     }
 
-    //FOR SECOND ARRAY COPY
-    mainArrayindex = mid+1; //STARTING INDEX OF THE SECOND ARRAY
-    for(int i=0; i<rightLength; i++){
-        second[i] = arr[mainArrayindex++];
+    k = mid+1;
+    for(int i = 0;i<len2; i++){
+        right[i] = arr[k];
+        k++;
     }
 
-    int indexFirst = 0;
-    int indexSecond = 0;
-    mainArrayindex = start;
+    //MERGE LOGIC
+    int leftIndex = 0;
+    int rightIndex = 0;
+    int mainArrayIndex = start;
 
-    while(indexFirst < leftLength && indexSecond < rightLength){
-        if(first[indexFirst] < second[indexSecond]){
-            arr[mainArrayindex++] = first[indexFirst++];
+
+    while(leftIndex < len1 && rightIndex < len2){
+        if(left[leftIndex] < right[rightIndex]){
+            arr[mainArrayIndex] = left[leftIndex];
+            mainArrayIndex++;
+            leftIndex++;
         }else{
-            arr[mainArrayindex++] = second[indexSecond++];
+            arr[mainArrayIndex] = right[rightIndex];
+            mainArrayIndex++;
+            rightIndex++;
         }
     }
-
-    while(indexFirst < leftLength){
-        arr[mainArrayindex++] = first[indexFirst++];
+    while(leftIndex < len1){
+        arr[mainArrayIndex] = left[leftIndex];
+        mainArrayIndex++;
+        leftIndex++;
     }
-    while(indexSecond < rightLength){
-        arr[mainArrayindex++] = second[indexSecond++];
+    while(rightIndex < len2){
+        arr[mainArrayIndex] = right[rightIndex];
+        mainArrayIndex++;
+        rightIndex++;
     }
 
-    delete[] first;
-    delete[] second;
+    delete[] left;
+    delete[] right;
 }
 
 void mergeSort(vector<int>& arr, int start, int end){
     //base case
-    if(start>=end){ //if outside loop then return 
+    if(start>=end){ //if outside loop then return
         return;
     }
     int mid = start+(end-start)/2;
@@ -71,9 +79,9 @@ int main(){
 
     int start = 0;
     int end = n-1;
-    
+
     mergeSort(arr, start, end);
     for(int i = 0; i<arr.size(); i++){
-        cout<<arr[i]<<",";
+        cout<<arr[i]<<" ";
     }
 }
